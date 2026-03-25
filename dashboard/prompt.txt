@@ -1,0 +1,15 @@
+# Prompt Engineering for Dashboard Regeneration
+
+If you need to reproduce or expand this dashboard in the future, you can copy/paste the following prompt into Antigravity AI or any LLM agent:
+
+```
+Create a highly interactive, responsive real-time web dashboard for a Diabetes Prediction model inside the `diabetes-api/dashboard` directory.
+
+The requirements are:
+1. Tech Stack: HTML, Vanilla CSS with custom glassy styling (dark mode preferred), and Vanilla JavaScript using PapaParse and Chart.js via CDNs.
+2. Form Input fields: Pregnancies, Glucose, BloodPressure, SkinThickness, Insulin, BMI, DiabetesPedigreeFunction, and Age. Ensure proper numeric steps config.
+3. API POST integration: A predict button that hits `https://diabetes-api-production-e8c7.up.railway.app/predict`, using exactly matching property names. Render the prediction directly as a stylistic badge (`Diabetic` in red vs `Non-Diabetic` in green).
+4. Interactive Analytics: Parse the `dataset.csv` located locally with PapaParse to render an initial state. Plot: A line/bar distribution chart for BMI, Age, Glucose; A scatterplot chart for Glucose vs BMI colored by target outcome; A doughnut pie chart displaying total diabetic vs non-diabetic count.
+5. Reactivity: Upon receiving a prediction back from the API for a manual input, dynamically increment the pie chart's category totals and map the new coordinate natively onto the scatterplot.
+6. Make it instantly deployable with no backend dependencies, using a professional and stunning gradient/glassmorphism design. Provide a sample README.txt with instructions.
+```

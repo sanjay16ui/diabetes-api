@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diabetes Prediction Dashboard</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
+</head>
+<body>
+    <div class="dashboard-container">
+        <header class="header">
+            <h1>Diabetes Prediction Dashboard</h1>
+            <p>Enter patient vitals below to receive a real-time risk assessment powered by Machine Learning.</p>
+        </header>
+        
+        <main class="main-content">
+            <!-- Left Panel: Input Form -->
+            <section class="left-panel">
+                <div class="form-card">
+                    <h2>Patient Vitals</h2>
+                    <form id="prediction-form">
+                        <div class="input-group">
+                            <label for="Pregnancies">Pregnancies</label>
+                            <input type="number" id="Pregnancies" name="Pregnancies" required value="0" min="0" step="1">
+                        </div>
+                        <div class="input-group">
+                            <label for="Glucose">Glucose</label>
+                            <input type="number" id="Glucose" name="Glucose" required value="120" min="0" step="0.1">
+                        </div>
+                        <div class="input-group">
+                            <label for="BloodPressure">Blood Pressure</label>
+                            <input type="number" id="BloodPressure" name="BloodPressure" required value="70" min="0" step="0.1">
+                        </div>
+                        <div class="input-group">
+                            <label for="SkinThickness">Skin Thickness</label>
+                            <input type="number" id="SkinThickness" name="SkinThickness" required value="20" min="0" step="0.1">
+                        </div>
+                        <div class="input-group">
+                            <label for="Insulin">Insulin</label>
+                            <input type="number" id="Insulin" name="Insulin" required value="80" min="0" step="0.1">
+                        </div>
+                        <div class="input-group">
+                            <label for="BMI">BMI</label>
+                            <input type="number" id="BMI" name="BMI" required value="25.0" min="0" step="0.1">
+                        </div>
+                        <div class="input-group">
+                            <label for="DiabetesPedigreeFunction">Diabetes Pedigree Function</label>
+                            <input type="number" id="DiabetesPedigreeFunction" name="DiabetesPedigreeFunction" required value="0.5" min="0" step="0.001">
+                        </div>
+                        <div class="input-group">
+                            <label for="Age">Age</label>
+                            <input type="number" id="Age" name="Age" required value="33" min="0" step="1">
+                        </div>
+                        <button type="submit" id="predict-btn" class="primary-btn">Predict Diabetes Risk</button>
+                    </form>
+
+                    <div id="prediction-result" class="result-card hidden">
+                        <h3>Prediction Result</h3>
+                        <div id="result-badge" class="badge"></div>
+                        <p id="result-message"></p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Right Panel: Data Visualization -->
+            <section class="right-panel">
+                <div class="charts-grid">
+                    <!-- Chart 1: Histograms -->
+                    <div class="chart-card">
+                        <h3>Distribution Analysis (Glucose, BMI, Age)</h3>
+                        <div class="chart-container">
+                            <canvas id="histogramChart"></canvas>
+                        </div>
+                    </div>
+                    
+                    <!-- Chart 2: Scatter Plot -->
+                    <div class="chart-card">
+                        <h3>Glucose vs BMI Correlation</h3>
+                        <div class="chart-container">
+                            <canvas id="scatterChart"></canvas>
+                        </div>
+                    </div>
+
+                    <!-- Chart 3: Pie Chart -->
+                    <div class="chart-card">
+                        <h3>Historical Outcomes vs Predictions</h3>
+                        <div class="chart-container">
+                            <canvas id="pieChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
